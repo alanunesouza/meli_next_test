@@ -1,0 +1,55 @@
+.container {
+  height: 7rem;
+  background-color: var(--yellow);
+  width: 100%;
+  padding: 1.2rem;
+  
+  display: flex;
+  justify-content: center;
+
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+}
+
+.form img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.inputBar {
+  margin-left: var(--spacer-sm);
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: .3rem 0 0 .3rem;
+  padding: 1.8rem;
+  font-size: var(--font-sm);
+  outline: none;
+}
+
+.inputBar::placeholder {
+  opacity: 0.6;
+}
+
+.buttonSearch {
+  width: 4rem;
+  height: 100%;
+  border: none;
+  border-radius: 0 .3rem .3rem 0;
+  outline: none;
+}
+
+.buttonSearch:hover {
+  transition: filter 0.3s ease-in-out;
+  filter: brightness(90%);
+}
+
+.buttonSearch img {
+  width: 2rem;
+  height: 2rem;
+}

@@ -1,0 +1,13 @@
+.container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  background-color: var(--white);
+  border-radius: 0.4rem;
+}

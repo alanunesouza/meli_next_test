@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 900px;
+  min-height: 204px;
+  border-radius: 4px;
+  padding: var(--spacer-xlg);
+  margin: var(--spacer-xlg);
+  background-color: var(--white)
+}
+
+.title {
+  font-size: var(--font-lg);
+  margin-bottom: var(--spacer-sm);
+}
+
+.image {
+  margin-right: var(--spacer-xlg);
+}
+
+.information {
+  font-size: var(--font-sm);
+  margin-left: var(--spacer-lg);
+}

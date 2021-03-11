@@ -1,0 +1,72 @@
+.container {
+  padding: var(--spacer-sm) 0;
+  margin: 0 var(--spacer-sm);
+  border-bottom: thin solid var(--gray-light);
+
+  display: flex;
+  flex-direction: row;
+}
+
+.container a {
+  cursor: pointer;
+}
+
+.container a:hover {
+  opacity: 0.8;
+}
+
+.image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 0.4rem;
+  margin-right: var(--spacer-sm);
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.containerDetails {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.containerPrice {
+  display: flex;
+}
+
+.price {
+  margin-bottom: var(--spacer-lg);
+  font-size: var(--spacer-md);
+}
+
+.priceDecimal {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.freeShipping {
+  height: 18px;
+  width: 18px;
+  margin-left: var(--spacer-ssm);
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+.containerLocation {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.containerLocation span {
+  font-size: 1.2rem;
+  margin-top: var(--spacer-lg);
+}
