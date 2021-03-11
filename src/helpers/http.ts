@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const http = axios.create({
-  baseURL: process.env.MELI_BFF_ENDPOINT,
+  baseURL: process.env.NEXT_PUBLIC_API_BFF,
 });

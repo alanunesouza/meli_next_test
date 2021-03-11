@@ -19,8 +19,6 @@ const Items = ({ listProducts, categories, loading }) => {
     }
   }, [router.query.search])
 
-  console.log(loading)
-
   if (loading) return <Loading />
 
   return (
