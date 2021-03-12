@@ -36,26 +36,6 @@
   justify-content: center;
 }
 
-.containerPrice {
-  display: flex;
-}
-
-.price {
-  margin-bottom: var(--spacer-lg);
-  font-size: var(--spacer-md);
-}
-
-.priceDecimal {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.freeShipping {
-  height: 18px;
-  width: 18px;
-  margin-left: var(--spacer-ssm);
-}
-
 .title {
   font-size: 1.8rem;
 }

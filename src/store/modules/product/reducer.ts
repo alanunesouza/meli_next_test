@@ -2,7 +2,7 @@ import { TYPE_PRODUCT_DETAILS_FAILURE, TYPE_PRODUCT_DETAILS_REQUEST, TYPE_PRODUC
 import produce from "immer";
 
 export const INITIAL_STATE = {
-  loading: true,
+  loading: false,
   loadingProductDetails: true,
   productList: [],
   categories: [],

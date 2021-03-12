@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import styles from './index.module.css'
 
-
 export default function Header() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
   const router = useRouter();
 
-  const handleChange = (value) => {
+  const handleChange = useCallback((value) => {
     setInputValue(value);
-  }
+  }, [])
   
-  const handleSearch = (e) => {
+  const handleSearch = useCallback((e) => {
     e.preventDefault();
 
     if (!!inputValue.length) {
       router.push(`/items?search=${inputValue}`);
     }
-  };
+    
+  }, [inputValue]);
 
   return (
     <header className={styles.container}>

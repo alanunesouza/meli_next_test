@@ -5,14 +5,16 @@ export type Author = {
 
 export type Categories = string[];
 
+export type Price = {
+  currency: string;
+  amount: number;
+  decimals: number;
+};
+
 export type ProductListItem = {
   id: string;
   title: string;
-  price: {
-    currency: string;
-    amount: number;
-    decimals: number;
-  };
+  price: Price;
   picture: string;
   condition: string;
   free_shipping: boolean;

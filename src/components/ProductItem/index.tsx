@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-import formatAmount from '@/helpers/formatAmount';
 import { ProductListItem } from '@/types';
 import styles from './index.module.css'
+import Amount from '../Amount';
 
 function ProductItem({ product }: { product: ProductListItem }) {
   const router = useRouter();
@@ -17,13 +17,15 @@ function ProductItem({ product }: { product: ProductListItem }) {
       </a>
       <div className={styles.subContainer}>
         <div className={styles.containerDetails}>
-          <div className={styles.containerPrice}>
+          {/* <div className={styles.containerPrice}>
             <span className={styles.price}>$ {formatAmount(product.price.amount)} </span>
             <span className={styles.priceDecimal}>
               {product.price.decimals && product.price.decimals < 2 ? `0${product.price.decimals}` : '00'}
             </span>
+            
             {product.free_shipping && <img className={styles.freeShipping} src="/images/ic_shipping@2x.png" alt="free_shipping" />}
-          </div>
+          </div> */}
+          <Amount price={product.price} />
           <a className={styles.title} onClick={() => handleProductDetails(product.id)}>
             <span>{product.title}</span>
           </a>
