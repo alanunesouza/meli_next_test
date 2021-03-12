@@ -45,18 +45,19 @@ a {
   --font-lg: 2.4rem;
   --font-xlg: 4.6rem;
 }
-/* 
+
+
 @media(max-width: 1080px) {
   html {
-    font-size: 93.75%;
+    font-size: 53.75%;
   }
 }
 
 @media(max-width: 720) {
   html {
-    font-size: 87.5%;
+    font-size: 47.5%;
   }
-} */
+} 
 
 body {
   background: var(--gray-light);

@@ -5,18 +5,32 @@ import styles from './index.module.css';
 
 import { productDetailsRequest } from '@/store/modules/product/actions'
 import CategoriesBar from '@/components/CategoriesBar';
-import ProductItem from '@/components/ProductItem';
 import ProductDetails from '@/components/ProductDetails';
 import { useRouter } from 'next/router';
+import { Categories, ProductItemDetail } from '@/types';
+import Loading from '@/components/Loading';
 
-const ItemsId = ({ product, categories }) => {
+interface ItemsIdProps {
+  product: ProductItemDetail,
+  categories: Categories,
+  loadingProductDetails: Boolean,
+  dispatch: any
+}
+
+const ItemsId = ({ product, categories, loadingProductDetails, dispatch }: ItemsIdProps) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.query.id) {
-      router.push(`/items/${router.query.id}`);
-    }
+    const id: any = router.query.id;
+    
+    setTimeout(() => {
+      if (id && !product) {
+        dispatch(productDetailsRequest(id));
+      }
+    }, 5000)
   }, [router.query.id])
+
+  if (loadingProductDetails) return <Loading />
 
   return (
     <>
@@ -36,9 +50,11 @@ ItemsId.getInitialProps = ({ store, query }) => {
   return store.dispatch(productDetailsRequest(query.id));
 }
 
-const mapStateToProps = ({ product }) => ({
+const mapStateToProps = ({ dispatch, product }) => ({
   product: product.productDetails,
   categories: product.categories,
+  loadingProductDetails: product.loadingProductDetails,
+  dispatch,
 });
 
 export default connect(mapStateToProps)(ItemsId);

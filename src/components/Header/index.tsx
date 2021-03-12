@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import styles from './index.module.css'
-// import debounce from '@/helpers/debounce';
 
 
 export default function Header() {
@@ -12,10 +11,6 @@ export default function Header() {
   const handleChange = (value) => {
     setInputValue(value);
   }
-
-  // const debounceOnSearch = debounce((value: string) => {
-  //   router.push(`/items?search=${value}`);
-  // }, 1000);
   
   const handleSearch = (e) => {
     e.preventDefault();

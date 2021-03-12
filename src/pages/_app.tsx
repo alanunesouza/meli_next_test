@@ -1,15 +1,14 @@
 import React from 'react'
-import App from 'next/app';
+import App, { AppContext, AppInitialProps } from 'next/app';
 import Header from '@/components/Header'
-import withRedux from 'next-redux-wrapper';
 import '@/styles/globals.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { makeStore } from '@/store/store';
+import { wrapper } from '@/store/store';
 import Head from 'next/head'
 
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+class MyApp extends App<AppInitialProps> {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     return {
       pageProps: {
         ...(Component.getInitialProps
@@ -20,7 +19,7 @@ class MyApp extends App {
   }
   
   render() {
-    const { Component, pageProps, store }: any = this.props;
+    const { Component, pageProps }: any = this.props;
 
     return (
       <>
@@ -37,4 +36,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore, {})(MyApp)
+export default wrapper.withRedux(MyApp)

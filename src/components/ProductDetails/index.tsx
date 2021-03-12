@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './index.module.css'
-import formatedAmount from '@/helpers/formatedAmount'
+import formatAmount from '@/helpers/formatAmount'
+import { ProductItemDetail } from '@/types'
 
-export default function ProductDetails({ product }) {
+export default function ProductDetails({ product }: { product: ProductItemDetail }) {
   return (
     <>
       <div className={styles.containerProduct}>
@@ -18,9 +19,9 @@ export default function ProductDetails({ product }) {
               <span>{product.title}</span>
             </a>
             <div className={styles.containerPrice}>
-              <span className={styles.price}>$ {formatedAmount(product.price.amount)} </span>
+              <span className={styles.price}>$ {formatAmount(product.price.amount)} </span>
               <span className={styles.priceDecimal}>
-                {product.price.demails && product.price.demails.length < 2 ? `0${product.price.decimals}` : '00'}
+                {product.price.decimals && product.price.decimals < 2 ? `0${product.price.decimals}` : '00'}
               </span>
             </div>
             <button type="button" className={styles.button}>Comprar</button>

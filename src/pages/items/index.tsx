@@ -9,25 +9,37 @@ import ProductItem from '@/components/ProductItem';
 import { useRouter } from 'next/router'
 import Loading from '@/components/Loading';
 import NotFound from '@/components/NotFound';
+import { Categories, ProductListItem } from '@/types';
 
-const Items = ({ listProducts, categories, loading }) => {
+interface ItemsProps {
+  productList: ProductListItem[],
+  categories: Categories,
+  loading: boolean,
+  dispatch: any
+};
+
+const Items = ({ productList, categories, loading, dispatch }: ItemsProps) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.query.search) {
-      router.push(`/items?search=${router.query.search}`);
-    }
+    const search: any = router.query.search;
+
+    setTimeout(() => {
+      if (search && !productList.length) {
+        dispatch(searchProductsRequest(search))
+      }
+    }, 5000);
   }, [router.query.search])
 
   if (loading) return <Loading />
 
   return (
     <>
-      {!!listProducts.length ? (
+      {!!productList.length ? (
         <div className={styles.container}>
           <CategoriesBar categories={categories} />
           <div className={styles.productsContainer}>
-            {listProducts.map(item => (
+            {productList.map(item => (
               <ProductItem key={item.id} product={item} />
             ))}
           </div>
@@ -44,11 +56,12 @@ Items.getInitialProps = ({ store, query: { search } }) => {
   return search ? store.dispatch(searchProductsRequest(search)) : {};
 }
 
-const mapStateToProps = ({ search, product }) => ({
-  listProducts: product.listProducts,
+const mapStateToProps = ({ product, dispatch }) => ({
+  productList: product.productList,
   categories: product.categories,
   author: product.author,
   loading: product.loading,
+  dispatch
 });
 
 export default connect(mapStateToProps)(Items);

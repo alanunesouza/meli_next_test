@@ -1,7 +1,8 @@
+import { Categories } from '@/types';
 import React from 'react'
 import styles from './index.module.css';
 
-export default function CategoriesBar({ categories }) {
+export default function CategoriesBar({ categories }: { categories: Categories }) {
   return (
     
     <div className={styles.container}>

@@ -1,6 +1,9 @@
-import { http } from "@/helpers/http";
-import { TYPE_SEARCH_PRODUCT_SUCCESS, TYPE_SEARCH_PRODUCT_FAILURE, TYPE_PRODUCT_DETAILS_SUCCESS, TYPE_PRODUCT_DETAILS_FAILURE, TYPE_SET_LOADING } from "./types";
 import { Dispatch } from "redux";
+import { AxiosResponse } from "axios";
+
+import { http } from "@/helpers/http";
+import { TYPE_SEARCH_PRODUCT_SUCCESS, TYPE_SEARCH_PRODUCT_FAILURE, TYPE_PRODUCT_DETAILS_SUCCESS, TYPE_PRODUCT_DETAILS_FAILURE, TYPE_SET_LOADING } from "./types-reducers";
+import { ProductDetails, ProductList } from "@/types";
 
 export const setLoading = (value: Boolean) => {
     return {
@@ -17,7 +20,7 @@ export const searchProductsRequest = (name: string) => async (
     dispatch(setLoading(true));
 
     const url = `/items?search=${name}`;
-    const payload = await http.get(url);
+    const payload: AxiosResponse<ProductList> = await http.get(url);
 
     dispatch(searchProductsSuccess(payload))
   } catch (error) {
@@ -47,7 +50,7 @@ export const productDetailsRequest = (id: string) => async (
     dispatch(setLoading(true));
 
     const url = `/items/${id}`;
-    const payload = await http.get(url);
+    const payload: AxiosResponse<ProductDetails> = await http.get(url);
 
     dispatch(productDetailsSuccess(payload))
   } catch (error) {

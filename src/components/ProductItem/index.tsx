@@ -1,9 +1,11 @@
-import formatedAmount from '@/helpers/formatedAmount';
-import { useRouter } from 'next/router'
 import React from 'react'
+import { useRouter } from 'next/router'
+
+import formatAmount from '@/helpers/formatAmount';
+import { ProductListItem } from '@/types';
 import styles from './index.module.css'
 
-function ProductItem({ product }) {
+function ProductItem({ product }: { product: ProductListItem }) {
   const router = useRouter();
 
   const handleProductDetails = id => router.push(`/items/${id}`);
@@ -16,9 +18,9 @@ function ProductItem({ product }) {
       <div className={styles.subContainer}>
         <div className={styles.containerDetails}>
           <div className={styles.containerPrice}>
-            <span className={styles.price}>$ {formatedAmount(product.price.amount)} </span>
+            <span className={styles.price}>$ {formatAmount(product.price.amount)} </span>
             <span className={styles.priceDecimal}>
-              {product.price.demails && product.price.demails.length < 2 ? `0${product.price.decimals}` : '00'}
+              {product.price.decimals && product.price.decimals < 2 ? `0${product.price.decimals}` : '00'}
             </span>
             {product.free_shipping && <img className={styles.freeShipping} src="/images/ic_shipping@2x.png" alt="free_shipping" />}
           </div>
