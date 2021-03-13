@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './index.module.css'
 
 const NotFound = () => (
-  <div className={styles.container}>
+  <div className={styles.container} data-testid="not-found">
     <img className={styles.image} src="/images/not_found.svg" alt="not_found" />
     <div>
       <h1 className={styles.title}>Escriba en la búsqueda lo que desea encontrar.</h1>

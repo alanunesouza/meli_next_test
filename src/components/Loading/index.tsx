@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 import styles from './index.module.css'
 
 const Loading = () => (
-  <div className={styles.loading}>
+  <div className={styles.loading} data-testid="loading">
     <Loader
       type="Oval"
       color="#FFE600"

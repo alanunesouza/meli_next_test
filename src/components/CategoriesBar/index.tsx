@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './index.module.css';
 
 const CategoriesBar = ({ categories }: { categories: Categories }) => (
-  <div className={styles.container}>
+  <div data-testid="categories" className={styles.container}>
     {categories.map(category => (
       <a key={category}>{category}</a>
     ))}

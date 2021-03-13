@@ -38,11 +38,22 @@ export type ProductItemDetail = {
 
 export type ProductList = {
   author: Author;
-  categories: Categories;
+  categories: string[];
   items: ProductListItem[];
 };
 
 export type ProductDetails = {
   author: Author;
   item: ProductItemDetail;
+};
+
+export type InitialState = {
+  product: {
+    loading: boolean;
+    loadingProductDetails: boolean;
+    productList: ProductListItem[];
+    categories: string[];
+    author: Author;
+    productDetails: ProductItemDetail;
+  }
 };

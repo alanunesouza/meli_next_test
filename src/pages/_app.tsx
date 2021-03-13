@@ -27,7 +27,6 @@ class MyApp extends App<AppInitialProps> {
           <meta name="description" content="Encuentre lo que busca en el Día del Consumidor. Todo lo que necesitas está en Mercado Libre."/>
           <title>Mercado Livre</title>
           <meta name="google" content="notranslate" />
-          <meta name="google-site-verification" content="SatzofZuX4b_Yt3F0R3m5QPkeEbxBklkqIQlwYn2ATA" />
         </Head>
 
           <Header />
