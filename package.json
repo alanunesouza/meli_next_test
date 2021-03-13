@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --passWithNoTests --no-cache --runInBand"
+    "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -27,6 +29,8 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.32",
     "@types/react": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
     "eslint": "^7.21.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-nextjs": "^1.0.6",

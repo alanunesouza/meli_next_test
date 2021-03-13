@@ -6,7 +6,7 @@ import { screen, render } from '@testing-library/react';
 import { makeMockStore } from '@/helpers';
 import { stateProductDetailsMock } from '@/helpers/mocks';
 
-import Items from './index';
+import Items from '../../../../pages/items/[id]/index';
 
 const renderWithRedux = (store) => {
   const router: any = {
