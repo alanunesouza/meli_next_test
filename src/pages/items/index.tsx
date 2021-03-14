@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import styles from './index.module.css'
 
-import { searchProductsRequest } from '@/store/modules/product/actions'
+import { searchProductsRequest, setLoading } from '@/store/modules/product/actions'
 import CategoriesBar from '@/components/CategoriesBar';
 import ProductItem from '@/components/ProductItem';
 import { useRouter } from 'next/router'
@@ -30,6 +30,10 @@ const Items = ({ productList, categories, loading, dispatch }: ItemsProps) => {
       }
     }, 5000);
   }, [router.query.search])
+
+  useEffect(() => {
+    return () => dispatch(setLoading(false));
+  }, [])
 
   if (loading) return <Loading />
 

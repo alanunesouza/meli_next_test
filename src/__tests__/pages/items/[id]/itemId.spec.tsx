@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { screen, render } from '@testing-library/react';
 
-import { makeMockStore } from '@/helpers';
+import { makeMockStore } from '@/helpers/make-mock-store';
 import { stateProductDetailsMock } from '@/helpers/mocks';
 
 import Items from '../../../../pages/items/[id]/index';

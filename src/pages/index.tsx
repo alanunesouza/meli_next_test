@@ -8,7 +8,6 @@ function Home({ loading }) {
 
   if (loading) return <Loading />;
 
-
   return (
     <div className={styles.container} />
   )

@@ -21,12 +21,12 @@ export default function Header() {
   }, [inputValue]);
 
   return (
-    <header className={styles.container}>
+    <header data-testid="header" className={styles.container}>
       <form className={styles.form} data-testid="search-form" onSubmit={handleSearch}>
         <img src="/images/Logo_ML_2x.png" alt="logo_meli" onClick={() => router.push('/')}/>
-        <input name="bar" type="text" className={styles.inputBar} placeholder="Nunca desejes de buscar" value={inputValue} onChange={(e) => handleChange(e.target.value)} />
+        <input data-testid="input-bar" name="bar" type="text" className={styles.inputBar} placeholder="Nunca desejes de buscar" value={inputValue} onChange={(e) => handleChange(e.target.value)} />
         <button className={styles.buttonSearch} onClick={handleSearch} type="submit">
-          <img src="/images/ic_Search_2x.png" alt="search" />
+          <img src="/images/ic_Search_2x.png" alt="button_search" />
         </button>
       </form>
     </header>
