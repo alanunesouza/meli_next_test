@@ -1,35 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <img alt="mercado-livre" title="mercado-livre" src="./public/images/Logo_ML_2x.png" />
+</h1>
 
-## Getting Started
+<blockquote align="center">“Teste Front-end - Mercado Livre”</blockquote>
 
-First, run the development server:
+<p align="center">
+  <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hammer-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Autor e Licença</a>
+</p>
 
-```bash
-npm run dev
-# or
+## :rocket: Sobre o desafio
+
+Aplicação simples e performática de listagem e detalhes dos produtos do Mercado Livre. Aplicação disponível em produção clicando [aqui](https://meli-product-list.vercel.app/).
+
+### Bibliotecas e Ferramentas utilizadas
+
+- React + Hooks;
+- Redux;
+- Saga;
+- ESLint + Prettier + EditorConfig;
+
+## :hammer: Instalação
+
+
+clone o repositório:
+
+```
+git clone https://github.com/alanunesouza/meli_next_test.git
+```
+
+instale as dependências:
+
+```
+yarn
+```
+
+
+### Testes Unitários
+
+Rode o comando:
+
+```
+yarn test
+```
+
+### Ambiente de desenvolvimento
+
+Se você já subiu o backend [BFF](https://github.com/alanunesouza/meli_bff_test) na porta 8080, crie um arquivo ".env.local" na raíz do projeto, para apontarmos as requisições para o BFF:
+
+```
+NEXT_PUBLIC_API_BFF="http://localhost:8080/api"
+```
+
+Agora basta rodar o comando abaixo para subirmos o projeto:
+
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Agora o ambiente deve estar disponível em sua máquina, no endereço http://localhost:3000
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## :memo: Autor e Licença
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Criado por Alan Nunes em 2021. Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
