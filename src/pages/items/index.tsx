@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import styles from './index.module.css'
 
-import { searchProductsRequest, setLoading } from '@/store/modules/product/actions'
+import { searchProductsAction, setLoading } from '@/store/modules/product/actions'
 import CategoriesBar from '@/components/CategoriesBar';
 import ProductItem from '@/components/ProductItem';
 import { useRouter } from 'next/router'
@@ -26,7 +26,7 @@ const Items = ({ productList, categories, loading, dispatch }: ItemsProps) => {
 
     setTimeout(() => {
       if (search && !productList.length) {
-        dispatch(searchProductsRequest(search))
+        dispatch(searchProductsAction(search))
       }
     }, 5000);
   }, [router.query.search])
@@ -57,7 +57,7 @@ const Items = ({ productList, categories, loading, dispatch }: ItemsProps) => {
 }
 
 Items.getInitialProps = ({ store, query: { search } }) => {
-  return search ? store.dispatch(searchProductsRequest(search)) : {};
+  return search ? store.dispatch(searchProductsAction(search)) : {};
 }
 
 const mapStateToProps = ({ product, dispatch }) => ({

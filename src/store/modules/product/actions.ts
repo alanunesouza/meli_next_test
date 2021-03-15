@@ -2,7 +2,7 @@ import { Dispatch } from "redux";
 import { AxiosResponse } from "axios";
 
 import { http } from "@/helpers/http";
-import { TYPE_SEARCH_PRODUCT_SUCCESS, TYPE_SEARCH_PRODUCT_FAILURE, TYPE_PRODUCT_DETAILS_SUCCESS, TYPE_PRODUCT_DETAILS_FAILURE, TYPE_SET_LOADING } from "./types-reducers";
+import { TYPE_SEARCH_PRODUCT_SUCCESS, TYPE_SEARCH_PRODUCT_FAILURE, TYPE_PRODUCT_DETAILS_SUCCESS, TYPE_PRODUCT_DETAILS_FAILURE, TYPE_SET_LOADING, TYPE_PRODUCT_DETAILS_REQUEST, TYPE_SEARCH_PRODUCT_REQUEST } from "./types-reducers";
 import { ProductDetails, ProductList } from "@/types";
 
 export const setLoading = (value: Boolean) => {
@@ -12,12 +12,12 @@ export const setLoading = (value: Boolean) => {
   };
 }
 
-export const searchProductsRequest = (name: string) => async (
+export const searchProductsAction = (name: string) => async (
   dispatch: Dispatch
 ): Promise<void> => {
   
   try {
-    dispatch(setLoading(true));
+    dispatch(searchProductsRequest());
 
     const url = `/items?search=${name}`;
     const payload: AxiosResponse<ProductList> = await http.get(url);
@@ -26,6 +26,12 @@ export const searchProductsRequest = (name: string) => async (
   } catch (error) {
     dispatch(searchProductsFailure(error))
   }
+}
+
+export function searchProductsRequest() {
+  return {
+    type: TYPE_SEARCH_PRODUCT_REQUEST
+  };
 }
 
 export function searchProductsSuccess({ data }) {
@@ -42,12 +48,12 @@ export function searchProductsFailure(error) {
   };
 }
 
-export const productDetailsRequest = (id: string) => async (
+export const productDetailsAction = (id: string) => async (
   dispatch: Dispatch
 ): Promise<void> => {
   
   try {
-    dispatch(setLoading(true));
+    dispatch(productDetailsRequest());
 
     const url = `/items/${id}`;
     const payload: AxiosResponse<ProductDetails> = await http.get(url);
@@ -56,6 +62,12 @@ export const productDetailsRequest = (id: string) => async (
   } catch (error) {
     dispatch(productDetailsFailure(error))
   }
+}
+
+export function productDetailsRequest() {
+  return {
+    type: TYPE_PRODUCT_DETAILS_REQUEST
+  };
 }
 
 export function productDetailsSuccess({ data }) {

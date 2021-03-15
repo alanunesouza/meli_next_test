@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import styles from './index.module.css';
 
-import { productDetailsRequest } from '@/store/modules/product/actions'
+import { productDetailsAction } from '@/store/modules/product/actions'
 import CategoriesBar from '@/components/CategoriesBar';
 import ProductDetails from '@/components/ProductDetails';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ const ItemsId = ({ product, categories, loadingProductDetails, dispatch }: Items
     
     setTimeout(() => {
       if (id && !product) {
-        dispatch(productDetailsRequest(id));
+        dispatch(productDetailsAction(id));
       }
     }, 5000)
   }, [router.query.id])
@@ -47,7 +47,7 @@ const ItemsId = ({ product, categories, loadingProductDetails, dispatch }: Items
 }
 
 ItemsId.getInitialProps = ({ store, query }) => {
-  return store.dispatch(productDetailsRequest(query.id));
+  return store.dispatch(productDetailsAction(query.id));
 }
 
 const mapStateToProps = ({ dispatch, product }) => ({

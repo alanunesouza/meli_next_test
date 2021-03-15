@@ -36,17 +36,20 @@ export function product(state = INITIAL_STATE, action) {
         break;
       }
       case TYPE_PRODUCT_DETAILS_REQUEST: {
+        draft.loading = true;
         draft.loadingProductDetails = true;
         break;
       }
       case TYPE_PRODUCT_DETAILS_SUCCESS: {
         draft.productDetails = action.payload.item;
+        draft.author = action.payload.author;
         draft.loadingProductDetails = false;
         break;
       }
       case TYPE_PRODUCT_DETAILS_FAILURE: {
         draft.productDetails = INITIAL_STATE.productDetails;
         draft.loadingProductDetails = false;
+        draft.author = INITIAL_STATE.author;
         break;
       }
       default:
