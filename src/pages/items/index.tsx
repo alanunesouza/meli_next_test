@@ -24,11 +24,9 @@ const Items = ({ productList, categories, loading, dispatch }: ItemsProps) => {
   useEffect(() => {
     const search: any = router.query.search;
 
-    setTimeout(() => {
-      if (search && !productList.length) {
-        dispatch(searchProductsAction(search))
-      }
-    }, 5000);
+    if (search && !productList.length) {
+      dispatch(searchProductsAction(search))
+    }
   }, [router.query.search])
 
   useEffect(() => {

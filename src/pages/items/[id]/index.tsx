@@ -22,12 +22,10 @@ const ItemsId = ({ product, categories, loadingProductDetails, dispatch }: Items
 
   useEffect(() => {
     const id: any = router.query.id;
-    
-    setTimeout(() => {
-      if (id && !product) {
-        dispatch(productDetailsAction(id));
-      }
-    }, 5000)
+
+    if (id && !product) {
+      dispatch(productDetailsAction(id));
+    }
   }, [router.query.id])
 
   if (loadingProductDetails) return <Loading />

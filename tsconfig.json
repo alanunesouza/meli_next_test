@@ -31,7 +31,6 @@
     "src/helpers/mocks/styleMock.js"
   ],
   "exclude": [
-    "node_modules",
-    "cypress"
+    "node_modules"
   ]
 }
